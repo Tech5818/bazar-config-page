@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledListItemRank, StyledListItemContainer, StyledListItemName, StyledListItemScore } from "../styles/List/ListsStyle";
+import { StyledListItemRank, StyledListItemContainer, StyledListItemName, StyledListItemScore, StyledListItemMedal } from "../styles/List/ListsStyle";
 
 interface ListItemProps {
     name: string;
@@ -10,14 +10,19 @@ interface ListItemProps {
 export const ListItem: React.FC<ListItemProps> = ({name, score, rank}) => {
     return(
         <>
-            <StyledListItemContainer>
-                <StyledListItemRank>
+            <StyledListItemContainer $rank={rank}>
+                <StyledListItemRank $rank={rank}>
                     {rank}위
                 </StyledListItemRank>
-                <StyledListItemName>
+                <StyledListItemName $rank={rank}>
                     {name}
                 </StyledListItemName>
-                <StyledListItemScore>
+                <StyledListItemMedal>
+                    {rank === 1 ? "🥇" : ""}
+                    {rank === 2 ? "🥈" : ""}
+                    {rank === 3 ? "🥉" : ""}
+                </StyledListItemMedal>
+                <StyledListItemScore $rank={rank}>
                     {score}점
                 </StyledListItemScore>
             </StyledListItemContainer>

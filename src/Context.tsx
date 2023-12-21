@@ -7,6 +7,8 @@ type ContextType = {
     setTuhoCheck: React.Dispatch<React.SetStateAction<boolean>>;
     jegichagiCheck: boolean;
     setJegichagiCheck: React.Dispatch<React.SetStateAction<boolean>>;
+    onPopup: boolean;
+    setOnPopup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const defaultValue: ContextType = {
@@ -16,6 +18,8 @@ const defaultValue: ContextType = {
     setTuhoCheck: () => {},
     jegichagiCheck: false,
     setJegichagiCheck: () => {},
+    onPopup: false,
+    setOnPopup: () => {},
 }
 
 const Context = createContext(defaultValue);
@@ -24,9 +28,13 @@ export const ContextProvider = ({children}: {children:React.ReactNode}) => {
     const [archeryCheck, setArcheryCheck] = useState(true);
     const [tuhoCheck, setTuhoCheck] = useState(false);
     const [jegichagiCheck, setJegichagiCheck] = useState(false);
+    const [onPopup, setOnPopup] = useState(false);
 
     return(
-        <Context.Provider value={{archeryCheck, setArcheryCheck, tuhoCheck, setTuhoCheck, jegichagiCheck, setJegichagiCheck}}>
+        <Context.Provider value={{archeryCheck, setArcheryCheck,
+                                  tuhoCheck, setTuhoCheck,
+                                  jegichagiCheck, setJegichagiCheck,
+                                  onPopup, setOnPopup}}>
             {children}
         </Context.Provider>
     )
