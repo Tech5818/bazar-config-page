@@ -24,7 +24,6 @@ export const TuhoList = () => {
         if (data === null) {  // 무한 반복 방지
             getTuho();
         }
-        console.log(data);
     }, [data])
     return(
         <>

@@ -5,18 +5,20 @@ export const StyledMenuContainer = styled.div`
     width: 700px;
     height: 100px;
     background: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 2vh;
     display: flex;
     border-radius: 15px;
+    margin-top: 2vh;
 `;
 
 export const StyledMobileMenuContainer = styled.div`
-    width: 100vw;
+    width: 90vw;
     height: 10vh;
     background: #fff;
     margin-bottom: 4vh;
     display: flex;
     border-radius: 15px;
+    margin-top: 5vw;
 `;
 
 export const StyledMenuItem = styled(Link)`
@@ -31,6 +33,14 @@ export const StyledMenuItem = styled(Link)`
         background: #FFD580;
         color: #fff;
         font-family: 'SejonghospitalBold';
+    }
+`;
+
+export const StyledMobileMenuItem = styled(StyledMenuItem)`
+    &:hover {
+        background: transparent;
+        color: inherit;
+        font-family: 'SejonghospitalLight';
     }
 `;
 
@@ -60,4 +70,12 @@ export const StyledMenuItemText = styled.span<MenuItemTextProps>`
         transition: all.15s;
     }
     
+`;
+
+export const StyledMobileMenuItemText = styled(StyledMenuItemText)`
+    font-size: 1.5rem;
+    &:after{
+        content: "";
+        display: none;
+    }
 `;

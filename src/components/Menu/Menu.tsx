@@ -1,5 +1,5 @@
 import { useStateContext } from "../../Context"
-import { StyledMenuContainer, StyledMenuItem, StyledMenuItemText, StyledMobileMenuContainer } from "../../styles/Menu/MenuStyle"
+import { StyledMenuContainer, StyledMenuItem, StyledMenuItemText, StyledMobileMenuContainer, StyledMobileMenuItem, StyledMobileMenuItemText } from "../../styles/Menu/MenuStyle"
 import { PC, Mobile } from "../../responsive";
 
 export const Menu = () => {
@@ -49,7 +49,7 @@ export const Menu = () => {
             </PC>
             <Mobile>
                 <StyledMobileMenuContainer>
-                    <StyledMenuItem 
+                    <StyledMobileMenuItem 
                         onClick={() => {
                             setArcheryCheck(true);
                             setTuhoCheck(false);
@@ -57,11 +57,11 @@ export const Menu = () => {
                         }}
                         to="/"
                     >
-                        <StyledMenuItemText $check={archeryCheck.toString()}>
+                        <StyledMobileMenuItemText $check={archeryCheck.toString()}>
                             양궁
-                        </StyledMenuItemText>
-                    </StyledMenuItem>
-                    <StyledMenuItem 
+                        </StyledMobileMenuItemText>
+                    </StyledMobileMenuItem>
+                    <StyledMobileMenuItem 
                         onClick={() => {
                             setArcheryCheck(false);
                             setTuhoCheck(true);
@@ -69,11 +69,11 @@ export const Menu = () => {
                         }}
                         to="/tuho"
                     >
-                        <StyledMenuItemText $check={tuhoCheck.toString()}>
+                        <StyledMobileMenuItemText $check={tuhoCheck.toString()}>
                             투호
-                        </StyledMenuItemText>
-                    </StyledMenuItem>
-                    <StyledMenuItem 
+                        </StyledMobileMenuItemText>
+                    </StyledMobileMenuItem>
+                    <StyledMobileMenuItem 
                         onClick={() => {
                             setArcheryCheck(false);
                             setTuhoCheck(false);
@@ -81,10 +81,10 @@ export const Menu = () => {
                         }}
                         to="/jegichagi"
                     >
-                        <StyledMenuItemText $check={jegichagiCheck.toString()}>
+                        <StyledMobileMenuItemText $check={jegichagiCheck.toString()}>
                             제기차기
-                        </StyledMenuItemText>
-                    </StyledMenuItem>
+                        </StyledMobileMenuItemText>
+                    </StyledMobileMenuItem>
                 </StyledMobileMenuContainer>
             </Mobile>
         </>
