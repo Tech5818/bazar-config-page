@@ -10,5 +10,21 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: #fafafa;
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  font-family: 'SejonghospitalLight';
+}
+
+@font-face {
+  font-family: 'SejonghospitalBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SejonghospitalLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalLight.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
 }

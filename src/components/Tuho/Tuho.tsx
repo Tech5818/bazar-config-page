@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import { getDatas } from "../../apis/Tuho/getDatas";
+import { ListItem } from "../ListItem";
+import { StyledLists } from "../../styles/List/ListsStyle";
+import { StyledContentContainer, StyledMobileContentContainer } from "../../styles/Content/ContentStyle";
+import { Mobile, PC } from "../../responsive";
+
+interface RankData {
+    name: string;
+    score: number;
+}
 
 export const TuhoList = () => {
-    const [data, setData] = useState<object | null>(null);
+    const [data, setData] = useState<Array<object> | null>(null);
 
     const getTuho = async () => {
-        const fetchData:object = await getDatas();
+        const fetchData:Array<object> = await getDatas();
         setData(fetchData);
     }
     useEffect(() => {
@@ -19,7 +28,28 @@ export const TuhoList = () => {
     }, [data])
     return(
         <>
-        
+            <PC>
+                <StyledContentContainer>
+                    <StyledLists>
+                        {data?.filter((element): element is RankData => {
+                            return typeof (element as RankData).name === 'string' && typeof (element as RankData).score === 'number'; 
+                        }).sort((a,b) => b.score - a.score).map((element, idx) => (
+                            <ListItem name={element.name} score={element.score} key={idx} rank={idx + 1} />
+                        ))}
+                    </StyledLists>
+                </StyledContentContainer>
+            </PC>
+            <Mobile>
+                <StyledMobileContentContainer>
+                    <StyledLists>
+                        {data?.filter((element): element is RankData => {
+                            return typeof (element as RankData).name === 'string' && typeof (element as RankData).score === 'number'; 
+                        }).sort((a,b) => b.score - a.score).map((element, idx) => (
+                            <ListItem name={element.name} score={element.score} key={idx} rank={idx + 1} />
+                        ))}
+                    </StyledLists>
+                </StyledMobileContentContainer>
+            </Mobile>
         </>
     )
 }
